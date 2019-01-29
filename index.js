@@ -1,9 +1,21 @@
-/**
- * HTTP Cloud Function.
- *
- * @param {Object} req Cloud Function request context.
- * @param {Object} res Cloud Function response context.
- */
+const debug = require('@google-cloud/debug-agent').start();
+
+let debugInitialized;
+let functionCompleted;
+
 exports.helloGET = (req, res) => {
-  res.send('Hello World!');
+    debugInitialized = false;
+    functionCompleted = false;
+    debug.isReady().then(() => {
+        debugInitialized = true;
+        if (functionCompleted) {
+            console.log("terminating function - 1");
+            res.send('Hello World!');
+          }
+    });
+    functionCompleted = true;
+    if (debugInitialized) {
+        console.log("terminating function - 2");
+        res.send('Hello World!');
+      }
 };

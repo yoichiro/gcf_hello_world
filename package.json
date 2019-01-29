@@ -1,0 +1,22 @@
+{
+  "name": "gcf_hello_world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gcloud functions deploy helloGET --trigger-http"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoichiro/gcf_hello_world.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yoichiro/gcf_hello_world/issues"
+  },
+  "homepage": "https://github.com/yoichiro/gcf_hello_world#readme",
+  "dependencies": {
+    "@google-cloud/debug-agent": "^3.0.1"
+  }
+}
